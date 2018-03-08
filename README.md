@@ -1,1 +1,2 @@
 # gierka
+projekt obiektowy gierka
