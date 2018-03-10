@@ -29,5 +29,8 @@
     <ClInclude Include="Actor.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="..\packages\Allegro.5.2.4.0\build\native\include\allegro5\allegro_image.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

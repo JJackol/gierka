@@ -1,4 +1,8 @@
 #pragma once
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_image.h>
+typedef char stat;
+
 class Actor
 {
 public:
@@ -24,15 +28,15 @@ public:
 	~Player();
 protected:
 	int hp;
-	int ap;
+	stat ap;
 	int mana;
 private:
-	int strenght;
-	int dex;
-	int abilityp;
-	int armor;
-	int mres;
-	int fireres;
-	int coldres;
+	stat strenght;
+	stat dex;
+	stat abilityp;
+	stat armor;
+	stat mres;
+	stat fireres;
+	stat coldres;
 };
 
