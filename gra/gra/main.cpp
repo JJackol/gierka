@@ -20,19 +20,33 @@ int main(int argc, char **argv) {
 		return -1;
 	}
 	else fprintf(stderr, "Zainicjowano Klawiature\n");
-	al_get_allegro_image_version();
-/*	if (!al_init_image_addon()) {
+
+	if (!al_init_image_addon()) {
 		fprintf(stderr, "Nie mozna zainicjowac image add");
 		al_uninstall_keyboard();
 		return -1;
 	}
 	else fprintf(stderr, "Zainicjowano image add\n");
-	*/
-	//ALLEGRO_DISPLAY *ekran;
 
+	if (!al_install_mouse()) {
+		fprintf(stderr, "Nie mozna zainicjowac myszy");
+		al_uninstall_keyboard();
+		return -1;
+	}
+	else fprintf(stderr, "Zainicjowano mysz\n");
 
+	ALLEGRO_DISPLAY *ekran = nullptr;
+	ALLEGRO_BITMAP *mapa = nullptr;
+	ekran = al_create_display(SCREEN_W , SCREEN_H);
+	mapa = al_create_bitmap(2000, 2000);
+	al_set_target_bitmap(mapa);
+	mapa = al_load_bitmap("mapatest.png");
+	al_set_target_backbuffer(ekran);
+	al_draw_bitmap_region(mapa ,	0, 0, SCREEN_W, SCREEN_H, 0, 0,0);
+	al_flip_display();
+	al_rest(5);
 
-	
+	al_destroy_display(ekran);
 	al_uninstall_keyboard();
 	getchar();
 	return 0;
