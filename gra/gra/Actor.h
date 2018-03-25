@@ -1,19 +1,20 @@
 #pragma once
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
-typedef char stat;
+#include "Wektor.h"
+
 
 class Actor
 {
 public:
+	typedef char stat;
 	Actor();
 	~Actor();
 private:
 	int ID;
 	int Name;
 protected:
-	int pos_x;
-	int pos_y;
+	Wektor poz;
 	int pos_alpha;
 	int w;
 	int h;

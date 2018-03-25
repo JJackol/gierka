@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Wektor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -135,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="..\packages\Allegro.5.2.4.0\build\native\include\allegro5\allegro_image.h" />
     <ClInclude Include="Actor.h" />
+    <ClInclude Include="Wektor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
