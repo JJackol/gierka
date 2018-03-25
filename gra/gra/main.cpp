@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include "Wektor.h"
 
 const int SCREEN_W = 800;
 const int SCREEN_H = 600;
@@ -44,7 +45,7 @@ int main(int argc, char **argv) {
 	al_set_target_backbuffer(ekran);
 	al_draw_bitmap_region(mapa ,	0, 0, SCREEN_W, SCREEN_H, 0, 0,0);
 	al_flip_display();
-	al_rest(5);
+	al_rest(1);
 
 	al_destroy_display(ekran);
 	al_uninstall_keyboard();

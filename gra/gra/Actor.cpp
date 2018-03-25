@@ -1,14 +1,13 @@
 #include "Actor.h"
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
+#include "Wektor.h""
 
 
 Actor::Actor()
 {
 	ID = 0;
 	Name = 0;
-	pos_x = 0;
-	pos_y = 0 ;
 	pos_alpha = 0;
 	w = 0;
 	h = 0;
