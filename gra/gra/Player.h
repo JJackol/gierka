@@ -1,20 +1,12 @@
 #pragma once
-#include "Actor.h"
-class Player	:	private Actor
+#include "DynamicObject.h"
+#include <allegro5/allegro.h>
+#include "allegro5/allegro_image.h"
+class Player	:	public DynamicObject
 {
 public:
 	Player();
 	~Player();
-protected:
-	int hp;
-	stat ap;
-	int mana;
-private:
-	stat strenght;
-	stat dex;
-	stat abilityp;
-	stat armor;
-	stat mres;
-	stat fireres;
-	stat coldres;
+	void update_angle(Wektor mouse);
+	void load_resource();
 };

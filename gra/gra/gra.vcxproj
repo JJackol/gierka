@@ -87,7 +87,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -126,14 +130,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="DynamicObject.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="GameControl.cpp" />
     <ClCompile Include="GameModel.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MeleeWeapon.cpp" />
     <ClCompile Include="MyGameLib.cpp" />
+    <ClCompile Include="MyKeyboard.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Projectile.cpp" />
+    <ClCompile Include="Sector.cpp" />
+    <ClCompile Include="StaticObject.cpp" />
     <ClCompile Include="Wektor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,14 +152,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\packages\Allegro.5.2.4.0\build\native\include\allegro5\allegro_image.h" />
-    <ClInclude Include="Actor.h" />
+    <ClInclude Include="DynamicObject.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="GameControl.h" />
     <ClInclude Include="GameModel.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameView.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="MeleeWeapon.h" />
     <ClInclude Include="MyGameLib.h" />
+    <ClInclude Include="MyKeyboard.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Projectile.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Sector.h" />
+    <ClInclude Include="StaticObject.h" />
     <ClInclude Include="Wektor.h" />
   </ItemGroup>
   <ItemGroup>

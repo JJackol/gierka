@@ -3,18 +3,22 @@
 #include <allegro5/allegro_image.h>
 
 #include "Wektor.h"
+#include "DynamicObject.h"
 
-class Actor
+class Actor : public DynamicObject
 {
 public:
 	typedef char stat;
 	Actor();
 	~Actor();
-private:
-	Wektor my_pos;
-	float my_angle_pos;
-	int w;
-	int h;
+
+	int hp;
+	int mana;
+	float max_speed=10;
+	stat ap;
+	stat strenght;
+	stat dex;
+	stat armor;
 };
 
 

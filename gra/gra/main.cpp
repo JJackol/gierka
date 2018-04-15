@@ -23,22 +23,18 @@ int main(int argc, char **argv) {
 	Level level{ekran,mapa};
 
 	//level.init_model_timer_queue();
+	ALLEGRO_TIMER* my_timer = al_create_timer(1.0 );
+	al_start_timer(my_timer);
+	cout << al_get_timer_count(my_timer) << endl;
+
 
 	play_level(&level);
 
 
-	//al_rest(1);
 	al_destroy_display(ekran);
 
-	ALLEGRO_TIMER* my_timer = al_create_timer(1.0 / MAX_TICKS_PER_SEC);
-	al_start_timer(my_timer);
+
 	cout << al_get_timer_count(my_timer)<<endl;
-	al_rest(1);
-	cout << al_get_timer_count(my_timer) << endl; 
-	al_rest(1);
-	cout << al_get_timer_count(my_timer) << endl;
-	al_rest(1);
-	cout << al_get_timer_count(my_timer) << endl;
 
 	base_uninstal();
 	getchar();
