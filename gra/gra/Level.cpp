@@ -80,5 +80,6 @@ double Level::update_dt()
 	curr_tick_time = al_get_time();
 	dt -= curr_tick_time;
 	dt *= -1.0;
+	dt *= 1;
 	return dt;
 }
