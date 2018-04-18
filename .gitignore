@@ -6,40 +6,22 @@ gra/.vs/gra/v15/.suo
 *.log
 *.tlog
 *.pdb
-*.obj
 *.idb
-*.pdb
-gra/.vs/gra/v15/.suo
 *.db
-*.db
-gra/.vs/gra/v15/.suo
-*.db
+*.sbr
+*.obj
 *.ipch
 *.bsc
 *.ilk
-*.pdb
-*.obj
 *.sbr
-*.log
-*.tlog
 *.enc
 *.filters
-<<<<<<< HEAD
+
+
 gra/.vs/gra/v15/.suo
 gra/.vs/gra/v15/Browse.VC.db
-*.sbr
-*.obj
-*.pdb
-
 
 gra/.vs
-
 gra/Debug
-
+gra/gra/Debug
 gra/packages
-=======
->>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
-*.sbr
-*.obj
-*.pdb
-*.idb
