@@ -1,5 +1,24 @@
 ﻿  DynamicObject.cpp
   Enemy.cpp
+<<<<<<< HEAD
+<<<<<<< HEAD
+  GameControl.cpp
+  GameModel.cpp
+  GameObject.cpp
+  GameView.cpp
+  Level.cpp
+  main.cpp
+  MeleeWeapon.cpp
+  MyGameLib.cpp
+  MyKeyboard.cpp
+c:\users\jacek\newgierka\gra\gra\mykeyboard.cpp(3): warning C4305: "inicjowanie": obcięcie z "double" do "const float"
+  Player.cpp
+  Projectile.cpp
+  Sector.cpp
+  StaticObject.cpp
+  Wektor.cpp
+c:\users\jacek\newgierka\gra\gra\wektor.cpp(27): warning C4305: "*=": obcięcie z "double" do "float"
+=======
   GameObject.cpp
   Level.cpp
   Map.cpp
@@ -7,9 +26,22 @@
   Map2.cpp
 c:\users\jacek\gierka\gra\gra\map2.cpp(43): warning C4101: "err": lokalna zmienna, do której nie istnieje odwołanie
   MyGameLib.cpp
+=======
+  GameObject.cpp
+  Level.cpp
+  Map.cpp
+  Map1.cpp
+  Map2.cpp
+c:\users\jacek\gierka\gra\gra\map2.cpp(43): warning C4101: "err": lokalna zmienna, do której nie istnieje odwołanie
+  MyGameLib.cpp
+>>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
   Player.cpp
   Sector.cpp
   StaticObject.cpp
   main.cpp
+<<<<<<< HEAD
+>>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
+=======
+>>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
   Generowanie kodu...
-  gra.vcxproj -> C:\Users\Jacek\gierka\gra\Debug\gra.exe
+  gra.vcxproj -> C:\Users\jacek\newgierka\gra\Debug\gra.exe
