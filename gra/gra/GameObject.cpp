@@ -8,7 +8,7 @@ GameObject::GameObject() :angle{ 0 }, width{ 0 }, height{ 0 }, radius{ 0 }
 {
 }
 
-GameObject::GameObject(Wektor pos, float alpha=0, int w=0, int h=0, int r=0,
+GameObject::GameObject(Wektor pos,  int w=0, int h=0, int r=0,float alpha=0,
 						bool col =false)
 	:my_pos{ pos },		angle {	alpha }, 
 	width{ w },			height{ h }, 
@@ -16,6 +16,10 @@ GameObject::GameObject(Wektor pos, float alpha=0, int w=0, int h=0, int r=0,
 {
 
 
+}
+
+void GameObject::draw(Wektor camera)
+{
 }
 
 

@@ -103,10 +103,17 @@ Wektor Wektor::normalize()
 	return *this *= inv_sqrt((*this) * (*this));
 }
 
+Wektor Wektor::operator/=(int a)
+{
+	if (a != 0)
+		return { x / a , y / a };
+	return *this;
+}
+
 Wektor normalize(Wektor a)
 {
 	if (a.x != 0 || a.y!=0 )
-		return a*inv_sqrt(a * a);
+		return a*inv_sqrt(a*a);
 	return a;
 }
 

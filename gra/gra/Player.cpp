@@ -4,25 +4,26 @@
 
 Player::Player()
 {
-	width = 100;
-	height = 100;
+	my_pos = { 1620,5800 };
+	radius = 60;
+	width = 256;
+	height = 256;
+	my_bitmap = al_load_bitmap("bmp/player.png");
+	max_speed = 500;
 }
 
 
 Player::~Player()
 {
+	al_destroy_bitmap(my_bitmap);
 }
 
 void Player::update_angle(Wektor mouse)
 {
-	mouse -= {SCREEN_W / 2, SCREEN_H / 2};
-	angle = mouse.get_angle_d();
+	
 }
 
 void Player::load_resource()
 {
-
-	my_bitmap = al_create_bitmap(100, 100);
-	my_bitmap = al_load_bitmap("postac.png");
 
 }

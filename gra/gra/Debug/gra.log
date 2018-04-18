@@ -1,4 +1,15 @@
-﻿  Level.cpp
+﻿  DynamicObject.cpp
+  Enemy.cpp
+  GameObject.cpp
+  Level.cpp
+  Map.cpp
+  Map1.cpp
+  Map2.cpp
+c:\users\jacek\gierka\gra\gra\map2.cpp(43): warning C4101: "err": lokalna zmienna, do której nie istnieje odwołanie
   MyGameLib.cpp
+  Player.cpp
+  Sector.cpp
+  StaticObject.cpp
+  main.cpp
   Generowanie kodu...
   gra.vcxproj -> C:\Users\Jacek\gierka\gra\Debug\gra.exe
