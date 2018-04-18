@@ -25,3 +25,6 @@ gra/.vs
 gra/Debug
 gra/gra/Debug
 gra/packages
+gra/gra/gra.vcproj.filters
+gra/gra/gra.vcproj.user
+gra/gra/gra.vcproj
