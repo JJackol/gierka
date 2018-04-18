@@ -94,7 +94,7 @@ void Level::update_camera_pos()
 	mouse_pos -= player.my_pos;
 	player.angle = mouse_pos.get_angle_d();
 }
-//xDDDDD
+
 double Level::update_dt()
 {
 	return 0;
