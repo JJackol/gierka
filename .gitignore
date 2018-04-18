@@ -24,6 +24,7 @@ gra/.vs/gra/v15/.suo
 *.tlog
 *.enc
 *.filters
+<<<<<<< HEAD
 gra/.vs/gra/v15/.suo
 gra/.vs/gra/v15/Browse.VC.db
 *.sbr
@@ -36,3 +37,9 @@ gra/.vs
 gra/Debug
 
 gra/packages
+=======
+>>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
+*.sbr
+*.obj
+*.pdb
+*.idb
