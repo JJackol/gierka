@@ -21,10 +21,10 @@ gra/.vs/gra/v15/.suo
 gra/.vs/gra/v15/.suo
 gra/.vs/gra/v15/Browse.VC.db
 
-gra/.vs
-gra/Debug
-gra/gra/Debug
-gra/packages
+gra/.vs/
+gra/Debug/
+gra/gra/Debug/
+gra/packages/
 gra/gra/gra.vcproj.filters
 gra/gra/gra.vcproj.user
 gra/gra/gra.vcproj
