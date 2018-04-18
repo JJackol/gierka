@@ -1,5 +1,6 @@
 ﻿  DynamicObject.cpp
   Enemy.cpp
+<<<<<<< HEAD
   GameControl.cpp
   GameModel.cpp
   GameObject.cpp
@@ -16,5 +17,18 @@ c:\users\jacek\newgierka\gra\gra\mykeyboard.cpp(3): warning C4305: "inicjowanie"
   StaticObject.cpp
   Wektor.cpp
 c:\users\jacek\newgierka\gra\gra\wektor.cpp(27): warning C4305: "*=": obcięcie z "double" do "float"
+=======
+  GameObject.cpp
+  Level.cpp
+  Map.cpp
+  Map1.cpp
+  Map2.cpp
+c:\users\jacek\gierka\gra\gra\map2.cpp(43): warning C4101: "err": lokalna zmienna, do której nie istnieje odwołanie
+  MyGameLib.cpp
+  Player.cpp
+  Sector.cpp
+  StaticObject.cpp
+  main.cpp
+>>>>>>> a53b6feb91c9d13a9e2a8a9d8ca90e78a9881c3e
   Generowanie kodu...
   gra.vcxproj -> C:\Users\jacek\newgierka\gra\Debug\gra.exe
