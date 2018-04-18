@@ -1,4 +1,20 @@
-﻿  Level.cpp
+﻿  DynamicObject.cpp
+  Enemy.cpp
+  GameControl.cpp
+  GameModel.cpp
+  GameObject.cpp
+  GameView.cpp
+  Level.cpp
+  main.cpp
+  MeleeWeapon.cpp
   MyGameLib.cpp
+  MyKeyboard.cpp
+c:\users\jacek\newgierka\gra\gra\mykeyboard.cpp(3): warning C4305: "inicjowanie": obcięcie z "double" do "const float"
+  Player.cpp
+  Projectile.cpp
+  Sector.cpp
+  StaticObject.cpp
+  Wektor.cpp
+c:\users\jacek\newgierka\gra\gra\wektor.cpp(27): warning C4305: "*=": obcięcie z "double" do "float"
   Generowanie kodu...
-  gra.vcxproj -> C:\Users\Jacek\gierka\gra\Debug\gra.exe
+  gra.vcxproj -> C:\Users\jacek\newgierka\gra\Debug\gra.exe
