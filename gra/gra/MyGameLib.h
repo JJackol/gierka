@@ -13,8 +13,8 @@ struct InitError
 {
 };
 
-const int SCREEN_W = 800;
-const int SCREEN_H = 600;
+const int SCREEN_W = 1200;
+const int SCREEN_H = 900;
 
 const int MAX_FPS = 30;
 const int MAX_TICKS_PER_SEC = 60;

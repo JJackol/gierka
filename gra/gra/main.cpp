@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
 
 
 	play_level(&level);
-
+	cout << al_get_display_option(ekran, ALLEGRO_MAX_BITMAP_SIZE) << endl;
 
 	al_destroy_display(ekran);
 

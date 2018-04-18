@@ -13,6 +13,8 @@
 #include "Player.h"
 #include "MyKeyboard.h"
 #include "Sector.h"
+#include "Map1.h"
+#include "Map2.h"
 
 class Level
 {
@@ -34,15 +36,22 @@ public:
 	double curr_tick_time;
 	double dt;
 
+	Wektor camera_pos;
+	Wektor target_camera_pos;
+	Wektor player_pos;
+
 	StaticObject* static_objects;
 	DynamicObject* dynamic_objects;
 	int dynamic_objects_count;
 	int static_objects_count;
 	Player player;
+	StaticObject topleft;
 
 	Wektor mouse_pos;
 	ALLEGRO_MOUSE_STATE mouse_state;
 	MyKeyboard  keyboard;
+
+	Map2 map;
 
 	Enemy ** enemy_list;
 	int enemy_count;
@@ -51,18 +60,28 @@ public:
 	Projectile ** projectile_list;
 	int projectile_count;
 
-	Sector sector0, sector1, sector2, sector3, sector4, sector5;
+	GameObject** obj_list;
+	int obj_count;
+
+	Sector sector0, sector1, sector2;
 
 
 	Level();
 	Level(	ALLEGRO_DISPLAY *display,
 			ALLEGRO_BITMAP *map);
 	~Level();
-	void update_mouse();
+	
 	void init_model_timer_queue();
 	void start_timers();
 
+	void update_mouse();
+	void update_camera_pos();
+
+	//
 	double update_dt();
+
+	void draw_map();
+	void draw_object(GameObject* object);
 
 };
 

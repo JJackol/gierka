@@ -69,8 +69,6 @@ void play_level(Level* level)
 	double prev_t=0;
 	double dt=0;
 	double curr_t=al_get_time();
-	level->player.load_resource();
-	level->player.my_pos = { 1000,1000 };
 	while (level->game_is_running)
 	{
 		
@@ -169,7 +167,10 @@ void update_game_model(Level* level, double dt, double curr_time)
 
 	player->update_velocity(new_normalized_vel, curr_time);
 	player->update_position(dt);
-	player->update_angle(level->mouse_pos);
+	//player->update_angle(level->mouse_pos);
+
+	level->update_camera_pos();
+	manage_collisions(level);
 
 	std::cout << "Game update " <<  std::endl;
 }
@@ -178,18 +179,20 @@ void update_game_model(Level* level, double dt, double curr_time)
 
 void update_view(Level* level)
 
-{
-	Wektor camera_pos = (level->player.my_pos) - Wektor{static_cast<float>(SCREEN_H)/2, static_cast<float>(SCREEN_W)/2} ;
-	Wektor player_pos = level->player.my_pos - camera_pos;
+{/*
+	level->camera_pos = (level->player.my_pos) - Wektor{ static_cast<float>(SCREEN_W)/2, static_cast<float>(SCREEN_H)/2} ;
+	level->player_pos = level->player.my_pos - level->camera_pos;*/
 
-	int x = static_cast<int>(camera_pos.x);
-	int y = static_cast<int>(camera_pos.y);
-
+	int x = static_cast<int>(level->camera_pos.x);
+	int y = static_cast<int>(level->camera_pos.y);
+	ALLEGRO_BITMAP* map = level->map.my_bmp;
 	
-	al_set_target_backbuffer(level->my_display);
-	al_draw_bitmap_region(level->my_map, camera_pos.x , camera_pos.y , SCREEN_W, SCREEN_H,  0, 0, 0);
+	al_set_target_backbuffer(level->my_display); 
+	level->draw_map();
 
-	al_draw_rotated_bitmap(level->player.my_bitmap, level->player.width / 2, level->player.height / 2, SCREEN_W / 2, SCREEN_H / 2, level->player.angle, 0);
+	al_draw_bitmap(level->topleft.my_bitmap, level->topleft.my_pos.x - level->camera_pos.x, level->topleft.my_pos.y - level->camera_pos.y, 0);
+
+	al_draw_rotated_bitmap(level->player.my_bitmap, level->player.width / 2, level->player.height / 2, level->player_pos.x, level->player_pos.y, level->player.angle, 0);
 	al_flip_display();
 
 	//al_flush_event_queue(level->my_fps_timer_queue);
@@ -199,7 +202,7 @@ std::cout << "View update " << al_get_timer_count(level->my_fps_timer) << "*****
 void manage_collisions(Level* level)
 {
 	sector_divde(level);
-
+	level->map.keep_on_map(level->player);
 
 
 }
@@ -222,7 +225,7 @@ void collision(StaticObject& static_object, DynamicObject dynamic_object)
 
 void sector_divde(Level *level)
 {
-
+	
 	float range1 = 300;
 	float range2 = 1000;
 	Wektor player = level->player.my_pos;
@@ -233,24 +236,13 @@ void sector_divde(Level *level)
 
 		if ((enemy->my_pos - player)*(enemy->my_pos - player) <(range1 + enemy->radius)*(range1 + enemy->radius))
 			level->sector0.add(enemy);
+
 		if( (enemy->my_pos-player)*(enemy->my_pos - player) > (range1+enemy->radius)*(range1 + enemy->radius)
 			&& (enemy->my_pos - player)*(enemy->my_pos - player) < (range2 + enemy->radius)*(range2 + enemy->radius))
-		{
-			if(enemy->my_pos.x>player.x)
-			{
-				if (enemy->my_pos.y > player.y)
-					level->sector1.add(enemy);
-				if (enemy->my_pos.y < player.y)
-					level->sector4.add(enemy);
-			}
-			if (enemy->my_pos.x<player.x)
-				if (enemy->my_pos.y > player.y)
-					level->sector2.add(enemy);
-				if (enemy->my_pos.y < player.y)
-					level->sector3.add(enemy);
-		}
+			level->sector1.add(enemy);
+
 		else
-			level->sector5.add(enemy);
+			level->sector2.add(enemy);
 	}
 	Projectile* projectile = nullptr;
 	for (int i = 0; i<level->projectile_count; i++)
@@ -259,24 +251,13 @@ void sector_divde(Level *level)
 
 		if ((projectile->my_pos - player)*(projectile->my_pos - player) <(range1 + projectile->radius)*(range1 + projectile->radius))
 			level->sector0.add(projectile);
+
 		if ((projectile->my_pos - player)*(projectile->my_pos - player) > (range1 + projectile->radius)*(range1 + projectile->radius)
 			&& (projectile->my_pos - player)*(projectile->my_pos - player) < (range2 + projectile->radius)*(range2 + projectile->radius))
-		{
-			if (projectile->my_pos.x>player.x)
-			{
-				if (projectile->my_pos.y > player.y)
-					level->sector1.add(projectile);
-				if (projectile->my_pos.y < player.y)
-					level->sector4.add(projectile);
-			}
-			if (projectile->my_pos.x<player.x)
-				if (projectile->my_pos.y > player.y)
-					level->sector2.add(projectile);
-			if (projectile->my_pos.y < player.y)
-				level->sector3.add(projectile);
-		}
+			level->sector1.add(projectile);
+
 		else
-			level->sector5.add(projectile);
+			level->sector2.add(projectile);
 	}
 }
 

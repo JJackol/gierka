@@ -18,9 +18,10 @@ public:
 	double some_func(double x);
 	void update_velocity(Wektor target, double curr_time);
 	void update_position(double dt);
+	void draw(Wektor camera);
 
 	DynamicObject();
-	DynamicObject(Wektor pos, float alpha, int w, int h, int r, bool col, ALLEGRO_BITMAP* bitmap, Wektor vel); 
+	DynamicObject(Wektor pos,  int w, int h, int r,float alpha, bool col, Wektor vel); 
 	~DynamicObject();
 };
 

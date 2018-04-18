@@ -26,8 +26,7 @@ public:
 	Wektor operator*=(float a);
 	double get_angle_d();
 	Wektor normalize();
-	
-	
+	Wektor operator/=(int a);
 };
 float inv_sqrt(float x);
 Wektor normalize(Wektor a);

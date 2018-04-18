@@ -14,7 +14,8 @@ public:
 	ALLEGRO_BITMAP* my_bitmap;
 
 	GameObject();
-	GameObject(Wektor pos, float alpha, int w, int h, int r, bool col);
+	GameObject(Wektor pos,  int w, int h, int r,float alpha, bool col);
+	virtual void draw(Wektor camera);
 	~GameObject();
 };
 

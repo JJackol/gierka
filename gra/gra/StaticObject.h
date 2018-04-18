@@ -5,6 +5,7 @@ class StaticObject :
 {
 public:
 	StaticObject();
+	StaticObject(Wektor pos,const char* filename,float w, float h);
 	~StaticObject();
 };
 
