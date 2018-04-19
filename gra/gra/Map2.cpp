@@ -22,11 +22,12 @@ bool Map2::is_on_map(DynamicObject& object)
 	return true;
 }
 
-void Map2::draw(Wektor top_left)
+void Map2::draw(Wektor top)
 {
-	int k = 1;
-	top_left /= k;
-	al_draw_scaled_bitmap(my_bmp, top_left.x, top_left.y, SCREEN_W/k, SCREEN_H/k, 0, 0, SCREEN_W, SCREEN_H, 0);
+	int k = 4;
+	top /= k;
+	al_draw_scaled_bitmap(my_bmp, top.x, top.y, static_cast<float>(SCREEN_W)/k, static_cast<float>(SCREEN_H)/k,
+							0, 0, SCREEN_W, SCREEN_H, 0);
 }
 
 
@@ -35,8 +36,8 @@ Map2::Map2() :top_left(1588,1473),botom_right(8305,5924)
 	load:
 	try
 	{
-		InitError err;
-		my_bmp = al_load_bitmap("bmp/mapa3.png");
+		 InitError err;
+		my_bmp = al_load_bitmap("bmp/map3.png");
 		if (!my_bmp)throw err;
 
 	}

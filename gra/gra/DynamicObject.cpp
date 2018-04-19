@@ -2,6 +2,18 @@
 #include <allegro5/bitmap_draw.h>
 
 
+void DynamicObject::update_state(double dt, Wektor target)
+{
+	target.normalize();
+	this->update_velocity(target, 0);
+	this->update_position(dt);
+	if(hp<=0)
+	{
+		alive = false;
+		collision = false;
+	}
+}
+
 double DynamicObject::some_func(double x)
 {
 	return x * x;

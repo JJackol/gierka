@@ -137,6 +137,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="Level2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Map1.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameView.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Level2.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Map1.h" />
     <ClInclude Include="Map2.h" />

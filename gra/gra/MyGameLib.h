@@ -6,7 +6,8 @@
 #include "Level.h"
 #include "Enemy.h"
 #include "Projectile.h"
-
+#include <allegro5/bitmap.h>
+#include <allegro5/bitmap_io.h>
 class MeleeWeapon;
 
 struct InitError
@@ -34,8 +35,9 @@ double smooth_start(double t);
 
 void manage_collisions(Level *level);
 void collision(Player &player, Enemy &enemy);
-void collision(DynamicObject &object, Projectile &enemy);
+void collision(Projectile& projectile, Enemy& enemy);
 void collision(Enemy &enemy, MeleeWeapon &weapon);
-void collision(StaticObject &static_object, DynamicObject dynamic_object);
-void sector_divde(Level *level);
+void collision(StaticObject &static_object, DynamicObject& object);
+void sector_divide(Level *level);
+void collision(StaticObject& object, Projectile& pr);
 

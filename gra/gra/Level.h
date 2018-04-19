@@ -3,10 +3,6 @@
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_image.h>
 #include "Wektor.h"
-#include "GameControl.h"
-#include "GameModel.h"
-#include "GameView.h"
-#include <vector>
 #include "GameObject.h"
 #include "DynamicObject.h"
 #include "StaticObject.h"
@@ -23,7 +19,6 @@ public:
 	//GameControl control;
 	bool game_is_running;
 	ALLEGRO_DISPLAY *my_display;
-	ALLEGRO_BITMAP *my_map;
 
 	ALLEGRO_EVENT_QUEUE* my_fps_timer_queue;
 	ALLEGRO_EVENT_QUEUE* my_model_timer_queue;
@@ -39,37 +34,31 @@ public:
 	Wektor camera_pos;
 	Wektor target_camera_pos;
 	Wektor player_pos;
-
-	StaticObject* static_objects;
-	DynamicObject* dynamic_objects;
-	int dynamic_objects_count;
-	int static_objects_count;
 	Player player;
-	StaticObject topleft;
 
 	Wektor mouse_pos;
 	ALLEGRO_MOUSE_STATE mouse_state;
 	MyKeyboard  keyboard;
 
-	Map2 map;
 
-	Enemy ** enemy_list;
+	Map* mapp;
+
+	Enemy** enemy_list;
 	int enemy_count;
-	StaticObject ** static_list;
+	StaticObject** static_list;
 	int static_count;
-	Projectile ** projectile_list;
+	Projectile** projectile_list;
 	int projectile_count;
 
 	GameObject** obj_list;
 	int obj_count;
 
 	Sector sector0, sector1, sector2;
-
+	
 
 	Level();
-	Level(	ALLEGRO_DISPLAY *display,
-			ALLEGRO_BITMAP *map);
-	~Level();
+	Level(	ALLEGRO_DISPLAY *display);
+	virtual ~Level();
 	
 	void init_model_timer_queue();
 	void start_timers();
@@ -83,5 +72,22 @@ public:
 	void draw_map();
 	void draw_object(GameObject* object);
 
+	void flush();
+	void add(Enemy *);
+	void add(StaticObject *);
+	void add(Projectile *);
+
+	void remove_projectile(Projectile *);
+	//COLLISIONS   //////////////////////
+	void manage_collisions();
+	void sector_divide();
+	/*
+	void collision(Player &player, Enemy &enemy);
+	void collision(DynamicObject &object, Projectile &enemy);
+
+	void collision(StaticObject &static_object, DynamicObject& dynamic_object);
+
+	void collision(StaticObject& object, Projectile& enemy);
+	*/
 };
 

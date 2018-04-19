@@ -24,7 +24,6 @@ Wektor Wektor::add(Wektor a)
 
 Wektor Wektor::rotate(float alpha)
 {
-	alpha *= PI_CONST/180;
 	x = x * cos(alpha) + y*sin(alpha);
 	y = -x * sin(alpha) + y * cos(alpha);
 	return *this;
@@ -105,9 +104,7 @@ Wektor Wektor::normalize()
 
 Wektor Wektor::operator/=(int a)
 {
-	if (a != 0)
-		return { x / a , y / a };
-	return *this;
+		return { x /= a , y /= a };
 }
 
 Wektor normalize(Wektor a)

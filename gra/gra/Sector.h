@@ -7,11 +7,11 @@
 class Sector
 {
 public:
-	Enemy ** enemy_list;
+	Enemy** enemy_list;
 	int enemy_count;
-	StaticObject ** static_list;
+	StaticObject** static_list;
 	int static_count;
-	Projectile ** projectile_list;
+	Projectile** projectile_list;
 	int projectile_count;
 
 	void flush();

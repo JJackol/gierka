@@ -1,22 +1,9 @@
+#pragma once
 #include "MyGameLib.h"
+#include <allegro5/allegro.h>
+#include <allegro5/bitmap.h>
+#include <allegro5/bitmap_io.h>
 
-double smooth_start(double t)
-{
-	
-	return 0;
-}
-
-/*
-
-float inv_sqrt(float x) {
-	float xhalf = 0.5f*x;
-	int i = *(int*)&x;
-	i = 0x5f3759df - (i >> 1);
-	x = *(float*)&i;
-	x = x * (1.5f - xhalf * x*x);
-	return x;
-}
-*/
 void base_init()
 {
 	InitError init_error;
@@ -59,7 +46,7 @@ void play_level(Level* level)
 	ALLEGRO_EVENT_QUEUE* fps_queue = level->my_fps_timer_queue;
 	ALLEGRO_EVENT_QUEUE* model_queue = level->my_model_timer_queue;
 
-	
+	level->camera_pos = level->player.my_pos;
 	level->start_timers();
 	
 	ALLEGRO_EVENT ev;
@@ -165,12 +152,11 @@ void update_game_model(Level* level, double dt, double curr_time)
 	Player* player= &(level->player);
 	Wektor new_normalized_vel = level->keyboard.get_normalized_vel();
 
-	player->update_velocity(new_normalized_vel, curr_time);
-	player->update_position(dt);
-	//player->update_angle(level->mouse_pos);
+	player->update_state(dt, new_normalized_vel);
 
 	level->update_camera_pos();
-	manage_collisions(level);
+
+	level->manage_collisions();
 
 	std::cout << "Game update " <<  std::endl;
 }
@@ -179,18 +165,10 @@ void update_game_model(Level* level, double dt, double curr_time)
 
 void update_view(Level* level)
 
-{/*
-	level->camera_pos = (level->player.my_pos) - Wektor{ static_cast<float>(SCREEN_W)/2, static_cast<float>(SCREEN_H)/2} ;
-	level->player_pos = level->player.my_pos - level->camera_pos;*/
-
-	int x = static_cast<int>(level->camera_pos.x);
-	int y = static_cast<int>(level->camera_pos.y);
-	ALLEGRO_BITMAP* map = level->map.my_bmp;
+{
 	
 	al_set_target_backbuffer(level->my_display); 
 	level->draw_map();
-
-	al_draw_bitmap(level->topleft.my_bitmap, level->topleft.my_pos.x - level->camera_pos.x, level->topleft.my_pos.y - level->camera_pos.y, 0);
 
 	al_draw_rotated_bitmap(level->player.my_bitmap, level->player.width / 2, level->player.height / 2, level->player_pos.x, level->player_pos.y, level->player.angle, 0);
 	al_flip_display();
@@ -200,18 +178,42 @@ std::cout << "View update " << al_get_timer_count(level->my_fps_timer) << "*****
 }
 
 void manage_collisions(Level* level)
-{
-	sector_divde(level);
-	level->map.keep_on_map(level->player);
+{//unused
+	
+	//sector_divide(level);
+	level->mapp->keep_on_map(level->player);
+
+	for(int i=0;i<level->static_count;i++)
+	{
+		for(int j=0; j<level->enemy_count; j++)
+		{
+			collision(*(level->static_list[i]), *(level->enemy_list[j]));
+		}
+		for (int j = 0; j<level->projectile_count; j++)
+		{
+			collision(*(level->static_list[i]), *(level->projectile_list[j]));
+		}
+		collision(*(level->static_list[i]), level->player);
+	}
+	//for(int i=0;i<)
 
 
 }
 
 void collision(Player& player, Enemy& enemy)
 {
+	Wektor w= enemy.my_pos - player.my_pos;
+	float r = player.radius + enemy.radius;
+	if ((w)*(w) < (r)*(r))
+		w.normalize();
+	w = (-w)*r;
+	enemy.my_pos += w;
 }
 
-void collision(DynamicObject& object, Projectile& enemy)
+void collision(Projectile& projectile, Enemy& enemy)
+{
+}
+void collision(StaticObject& object, Projectile& pr)
 {
 }
 
@@ -219,11 +221,33 @@ void collision(Enemy& enemy, MeleeWeapon& weapon)
 {
 }
 
-void collision(StaticObject& static_object, DynamicObject dynamic_object)
-{
+void collision(StaticObject& static_object, DynamicObject& object)
+{/*
+	Wektor z1 = {static_cast<float>(object.radius) ,static_cast<float>(object.radius) };
+	Wektor z2 = static_object.top_left - z1;
+	z1 += static_object.botom_right;
+	z1 -= object.my_pos;
+	z2-= object.my_pos;
+
+	Wektor rex;
+	Wektor rey;
+		if (z1.x>0 && z1.y>0 && z2.x > 0 && z2.y > 0)
+		{
+			if(z1.x<z2.x)
+				rex = { z1.x,0 };
+			else
+				rex = { -z2.x,0 };
+			if (z1.y < z2.y)
+				rey = { 0,z1.y };
+			else
+				rey = { 0,-z2.y };
+			object.my_pos += abs(rex.x) < abs(rey.y) ? rex : rey;
+		}
+		
+	*/
 }
 
-void sector_divde(Level *level)
+void sector_divide(Level *level)
 {
 	
 	float range1 = 300;

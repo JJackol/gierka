@@ -1,17 +1,17 @@
+#pragma once
 #include "StaticObject.h"
-#include <allegro5/bitmap_io.h>
 
 
 StaticObject::StaticObject():GameObject()
 {
 }
 
-StaticObject::StaticObject(Wektor pos, const char* filename, float w, float h) 
+StaticObject::StaticObject(Wektor pos, float w, float h) 
 {
-	my_pos = pos;
+	top_left = pos;
 	width = w;
 	height = h;
-	my_bitmap = al_load_bitmap(filename);
+	botom_right = top_left + Wektor{ w, h };
 }
 
 StaticObject::~StaticObject()

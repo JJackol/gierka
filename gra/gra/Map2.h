@@ -10,7 +10,7 @@ public:
 
 	void keep_on_map(DynamicObject& object);
 	bool is_on_map(DynamicObject & object);
-	void draw(Wektor top_left);
+	void draw(Wektor top) override;
 	Map2();
 	~Map2();
 };

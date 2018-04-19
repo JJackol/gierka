@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "Wektor.h"
+#include <allegro5/allegro.h>
 
 class DynamicObject :
 	public GameObject
@@ -11,9 +12,11 @@ public:
 	int hp;
 	int mana;
 	float max_speed = 300;
+	bool alive;
 
 	Wektor velocity;
 
+	virtual void update_state(double dt, Wektor target);
 
 	double some_func(double x);
 	void update_velocity(Wektor target, double curr_time);

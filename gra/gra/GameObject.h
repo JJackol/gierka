@@ -1,7 +1,8 @@
 #pragma once
 #include "Wektor.h"
-#include <allegro5/bitmap.h>
-
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_image.h>
+#include <allegro5/bitmap_io.h>
 class GameObject
 {
 public:
@@ -9,13 +10,15 @@ public:
 	float angle;
 	int width;
 	int height;
-	int radius;
-	bool colision;
-	ALLEGRO_BITMAP* my_bitmap;
+	float radius;
+	bool collision;
+	 ALLEGRO_BITMAP* my_bitmap;
+
+	void load_bitmap(const char* file);
+	virtual void draw(Wektor camera);
 
 	GameObject();
-	GameObject(Wektor pos,  int w, int h, int r,float alpha, bool col);
-	virtual void draw(Wektor camera);
-	~GameObject();
+	GameObject(Wektor pos,  int w, int h, float r,float alpha, bool col);
+	virtual ~GameObject();
 };
 
